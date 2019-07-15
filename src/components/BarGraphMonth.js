@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReactEcharts from "echarts-for-react";
-import { getOption, dataArr } from "../utils/barMonth";
+import { getOption} from "../utils/barMonth";
 import { getData } from "../actions/index";
 
 class BarGraphMonth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterTypes: ["Daily", "Monthly", "Yearly", "Reset"],
+      filterTypes: ["Daily","Weekly","Monthly",],
       currentFilter: "monthly"
     };
   }
@@ -37,22 +37,15 @@ class BarGraphMonth extends Component {
     //   completeResponse.push(obj.completeResponse);
     //   partialResponse.push(obj.partialResponse);
     });
-    console.log("data for chart")
-    console.log(dataForChart)
-
     return getOption(dataForChart);
   }
   handleFilterClick(filter) {
-   
-    if (filter === "reset") {
-      filter = "monthly";
-    }
     this.setState({ currentFilter: filter }, () => {
       this.props.getData(this.state.currentFilter);
     });
   }
   render() {
-    console.log("rendering");
+ 
     return (
       <div className="chart-2">
         <ReactEcharts option={this.getOption()} />
@@ -86,7 +79,6 @@ class BarGraphMonth extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return { data: state.dataMonthly };
 };
 const mapDispatchToProps = {

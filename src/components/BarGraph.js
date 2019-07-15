@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
 import ReactEcharts from 'echarts-for-react';  
-import echarts from 'echarts/lib/echarts';
-import 'echarts/lib/chart/bar';
-import {getBarOption} from '../utils/barData';
+import {connect} from 'react-redux';
+import {getOption} from '../utils/barData';
+import {getBarData} from '../actions/index';
 
-
-export default class BarGraph extends Component {
+ class BarGraph extends Component {
     constructor(props){
         super(props);
         this.state={
-            xAxisType:'lastTwoDays'
+            dataType:'lastTwoDays'
         }
     }
+
+    componentDidMount(){
+        this.props.getBarData(this.state.dataType);
+        }
+    
+      
      getOption = () => {
-       return getBarOption(this.props.data,this.state.xAxisType);
+       let data =  this.props.data;
+       if(data && data.length!==0){
+              let reportTypes= data.map((obj) => obj.reportType);
+              let dataValues = data.map((obj) => obj.value);
+              let resultType = data[0].dataType;
+         return getOption(reportTypes,dataValues,resultType);      
+       }  
+      return {};
     }
     selectOption = (event) =>{
         event.preventDefault();
-       this.setState({xAxisType:event.target.value});
+        let {value}= event.target;
+       this.setState(() =>({dataType:value}),() => { this.props.getBarData(this.state.dataType)});
     }
 	render() {
 		return (
@@ -33,3 +46,12 @@ export default class BarGraph extends Component {
 		);
 	}
 }
+const mapStateToProps = (state) => {
+    //console.log(Array.isArray(state.barData));
+    return {data:state.barData};
+}
+const mapDispatchToProps ={
+    getBarData
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(BarGraph);

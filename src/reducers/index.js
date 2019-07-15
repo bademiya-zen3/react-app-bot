@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import {barReducer} from './barReducer'
+import {barReducer} from './barReducer';
+import {dataReducer} from './dataReducer'
 
 const rootReducer = combineReducers({
-    barData:barReducer
+    barData:barReducer,
+    dataMonthly : dataReducer
 })
 
 export default rootReducer;

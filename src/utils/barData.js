@@ -1,12 +1,16 @@
-export const data={
-    reportType:['Total Number of Sessions','Income Tax Information','PF Related Information','Salary Related Information','View Offer Lette','Resignation Letter'],
-    lastTwoDays:[187,72,58,72,9,9],
-    monthToDate:[1229,519,425,519,47,81],
-    yearly:[14855,5906,5547,5906,757,813] 
-  }
+
+// Sample date format which would be returned by the getBarData action creator
+export const dataArr = [{"reportType":"Total Number of Sessions","dataType":"Last Two Days","value":187},
+{"reportType":"Income Tax Information","dataType":"Last Two Days","value":72},
+{"reportType":"PF Related Information","dataType":"Last Two Days","value":58},
+{"reportType":"Salary Related Information","dataType":"Last Two Days","value":72},
+{"reportType":"View Offer Lette","dataType":"Last Two Days","value":9},
+{"reportType":"Resignation Letter","dataType":"Last Two Days","value":9}]
 
 
-export const getBarOption = (data,type) => {
+
+export const getOption =(reportTypes,dataValues,resultType)=> {
+    
   return {
   color: ['#3398DB'],
   tooltip : {
@@ -24,7 +28,7 @@ export const getBarOption = (data,type) => {
   xAxis : [
       {
           type : 'category',
-          data : data.reportType,
+          data : reportTypes,
           axisTick: {
               alignWithLabel: true
           }
@@ -37,10 +41,10 @@ export const getBarOption = (data,type) => {
   ],
   series : [
       {
-          name:type[0].toUpperCase()+type.slice(1),
+          name:resultType,
           type:'bar',
-          barWidth: '60%',
-          data:data[type]
+          barWidth: '20%',
+          data:dataValues
       }
   ]
 }};

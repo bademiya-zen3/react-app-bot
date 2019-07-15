@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReactEcharts from "echarts-for-react";
-import { getOption} from "../utils/barMonth";
+import { getOption } from "../utils/barMonth";
 import { getData } from "../actions/index";
 
 class BarGraphMonth extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterTypes: ["Daily","Weekly","Monthly",],
+      filterTypes: ["Daily", "Weekly", "Monthly"],
       currentFilter: "monthly"
     };
   }
@@ -21,21 +21,20 @@ class BarGraphMonth extends Component {
     // let classified = [];
     // let completeResponse = [];
     // let partialResponse = [];
-    let dataForChart ={};
+    let dataForChart = {};
     this.props.data.forEach(obj => {
-     for(let key in obj){
-        if(dataForChart[key])
-         dataForChart[key].push(obj[key]);
-        else{
-            dataForChart[key]=[];
-            dataForChart[key].push(obj[key]);
-        } 
-     }   
-    //   duration.push(obj.duration);
-    //   total.push(obj.total);
-    //   classified.push(obj.classified);
-    //   completeResponse.push(obj.completeResponse);
-    //   partialResponse.push(obj.partialResponse);
+      for (let key in obj) {
+        if (dataForChart[key]) dataForChart[key].push(obj[key]);
+        else {
+          dataForChart[key] = [];
+          dataForChart[key].push(obj[key]);
+        }
+      }
+      //   duration.push(obj.duration);
+      //   total.push(obj.total);
+      //   classified.push(obj.classified);
+      //   completeResponse.push(obj.completeResponse);
+      //   partialResponse.push(obj.partialResponse);
     });
     return getOption(dataForChart);
   }
@@ -45,7 +44,6 @@ class BarGraphMonth extends Component {
     });
   }
   render() {
- 
     return (
       <div className="chart-2">
         <ReactEcharts option={this.getOption()} />
@@ -79,7 +77,7 @@ class BarGraphMonth extends Component {
 }
 
 const mapStateToProps = state => {
-  return { data: state.dataMonthly };
+  return { data: state.barMonthly };
 };
 const mapDispatchToProps = {
   getData

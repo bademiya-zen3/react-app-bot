@@ -1,5 +1,6 @@
 //Purely for mocking data returned from api requests
-//------>data for first bar chart
+
+//------>DATA FOR FIRST BAR CHART
 
 export const dataArr = [{"reportType":"Total Number of Sessions","dataType":"Last Two Days","value":187},
 {"reportType":"Income Tax Information","dataType":"Last Two Days","value":72},
@@ -23,7 +24,7 @@ export const dataArrYearly = [{"reportType":"Total Number of Sessions","dataType
 {"reportType":"Resignation Letter","dataType":"Yearly","value":59}]
 
 
-//----------->data for second bar chart
+//----------->DATA FOR SECOND BAR CHART
 
 export const dataMonthly =[{"duration":"Jan","total":48858,"classified":2768,"completeResponse":701,"partialResponse":1965},
 {"duration":"Feb","total":29161,"classified":1334,"completeResponse":301,"partialResponse":1009},
@@ -44,6 +45,18 @@ export const dataWeekly =[{"duration":"Week1","total":4888,"classified":278,"com
 export const dataDaily =[{"duration":"daily","total":4888,"classified":278,"completeResponse":701,"partialResponse":195}]
 
 
+//-------------> DATA FOR PIE CHART
 
+export const pieDataMonthly = [{"errorType":"Form16 Info Not Found","value":303},
+{"errorType":"IT Sheets Info Not Found","value":9},
+{"errorType":"PaySlips Info Not Found","value":158},
+{"errorType":"Request Token Not Suplied","value":485},
+{"errorType":"Salary Release Info Not Found","value":63},
+{"errorType":"Form16 Info Not Found","value":303}]
 
-
+export const pieDataYearly = [{"errorType":"Form16 Info Not Found","value":1639},
+{"errorType":"IT Sheets Info Not Found","value":102},
+{"errorType":"PaySlips Info Not Found","value":2785},
+{"errorType":"Request Token Not Suplied","value":6272},
+{"errorType":"Salary Release Info Not Found","value":620},
+{"errorType":"Form16 Info Not Found","value":1639}] 

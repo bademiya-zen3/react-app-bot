@@ -1,57 +1,5 @@
 import echarts from "echarts";
 
-export const dataArr = [
-  {
-    duration: "Jan",
-    total: 48858,
-    classified: 2768,
-    completeResponse: 701,
-    partialResponse: 1965
-  },
-  {
-    duration: "Feb",
-    total: 29161,
-    classified: 1334,
-    completeResponse: 301,
-    partialResponse: 1009
-  },
-  {
-    duration: "Mar",
-    total: 38287,
-    classified: 2466,
-    completeResponse: 686,
-    partialResponse: 1771
-  },
-  {
-    duration: "Apr",
-    total: 35249,
-    classified: 2490,
-    completeResponse: 681,
-    partialResponse: 1679
-  },
-  {
-    duration: "May",
-    total: 34973,
-    classified: 4155,
-    completeResponse: 2183,
-    partialResponse: 1508
-  },
-  {
-    duration: "June",
-    total: 36040,
-    classified: 4871,
-    completeResponse: 2558,
-    partialResponse: 2300
-  },
-  {
-    duration: "July",
-    total: 11906,
-    classified: 1612,
-    completeResponse: 625,
-    partialResponse: 985
-  }
-];
-
 export const getOption = ({
   duration,
   total,

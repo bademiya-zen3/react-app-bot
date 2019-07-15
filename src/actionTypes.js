@@ -1,0 +1,1 @@
+export const GETBARDATA = 'GET_BARDATA'

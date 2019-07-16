@@ -48,7 +48,8 @@ class Pie extends Component {
             left: "20%",
             marginTop: "2%",
             marginBottom: "2%",
-            width: "150px"
+            width: "150px",
+            borderRadius: "5px"
           }}
           value={this.state.dataType}
           onChange={this.selectOption}

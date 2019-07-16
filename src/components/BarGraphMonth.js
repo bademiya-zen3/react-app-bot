@@ -56,9 +56,11 @@ class BarGraphMonth extends Component {
                   margin: "5px",
                   padding: "5px",
                   cursor: "pointer",
-                  width: "5%",
+                  width: "7%",
                   color: "#fff",
-                  backgroundColor: "#5bc0de"
+                  backgroundColor: "#5bc0de",
+                  borderRadius: "7px",
+                  textAlign: "center"
                 }}
                 key={filter}
                 onClick={this.handleFilterClick.bind(

@@ -42,7 +42,7 @@ class BarGraph extends Component {
         <select
           style={{
             position: "relative",
-            left: "50%",
+            left: "20%",
             marginTop: "2%",
             width: "150px",
             borderRadius: "5px"

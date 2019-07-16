@@ -41,5 +41,8 @@
 }
 div.filters {
   position: relative;
-  left: 20%;
+  left: 15%;
+}
+li:hover{
+  opacity: 0.8;
 }

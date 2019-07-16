@@ -1,4 +1,4 @@
-export const getOption = ({ reportType, value, dataType }) => {
+export const getOption = (reportTypes, dataValues, dataType) => {
   return {
     color: ["#3398DB"],
     tooltip: {
@@ -16,7 +16,7 @@ export const getOption = ({ reportType, value, dataType }) => {
     xAxis: [
       {
         type: "category",
-        data: reportType,
+        data: reportTypes,
         axisTick: {
           alignWithLabel: true
         }
@@ -29,10 +29,10 @@ export const getOption = ({ reportType, value, dataType }) => {
     ],
     series: [
       {
-        name: dataType[0],
+        name: dataType,
         type: "bar",
         barWidth: "20%",
-        data: value
+        data: dataValues
       }
     ]
   };

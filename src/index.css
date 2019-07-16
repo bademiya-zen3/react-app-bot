@@ -46,3 +46,8 @@ div.filters {
 li:hover{
   opacity: 0.8;
 }
+.loading-container{
+  position: relative;
+  top:50%;
+  left:50%;
+}

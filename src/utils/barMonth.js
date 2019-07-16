@@ -1,12 +1,6 @@
 import echarts from "echarts";
 
-export const getOption = ({
-  duration,
-  total,
-  classified,
-  completeResponse,
-  partialResponse
-}) => {
+export const getOption = ({ sortby, total, classified, complete, partial }) => {
   var posList = [
     "left",
     "right",
@@ -68,7 +62,7 @@ export const getOption = ({
 
   var labelOption = {
     normal: {
-      show: true,
+      show: false,
       position: app.config.position,
       distance: app.config.distance,
       align: app.config.align,
@@ -93,7 +87,7 @@ export const getOption = ({
       }
     },
     legend: {
-      data: ["total", "classified", "completeResponse", "partialResponse"]
+      data: ["total", "classified", "complete", "partial"]
     },
     toolbox: {
       show: true,
@@ -113,7 +107,7 @@ export const getOption = ({
       {
         type: "category",
         axisTick: { show: false },
-        data: duration
+        data: sortby
       }
     ],
     yAxis: [
@@ -136,16 +130,16 @@ export const getOption = ({
         data: classified
       },
       {
-        name: "completeResponse",
+        name: "complete",
         type: "bar",
         label: labelOption,
-        data: completeResponse
+        data: complete
       },
       {
-        name: "partialResponse",
+        name: "partial",
         type: "bar",
         label: labelOption,
-        data: partialResponse
+        data: partial
       }
     ]
   };

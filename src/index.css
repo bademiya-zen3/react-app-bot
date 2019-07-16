@@ -19,23 +19,23 @@
   float: left;
   background-color: #e1ecf5;
   width: 70%;
-  height: 50%;
+  height: 40%;
   margin:10px;
   padding:10px;
 }
 .chart-2 {
   float: left;
   background-color: #ece2da70;
-  width: 70%;
-  height: 50%;
+  width: 65%;
+  height: 40%;
   margin:10px;
   padding:10px;
 }
 .chart-3 {
   float: left;
   background-color:#d3efef70; 
-  width: 70%;
-  height: 50%;
+  width: 30%;
+  height: 40%;
   margin:10px;
   padding:10px;
 }

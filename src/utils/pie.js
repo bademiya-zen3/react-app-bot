@@ -18,7 +18,7 @@ export function getOption(data, chartVariant, title = "Error Types in %") {
         name: chartVariant,
         type: "pie",
         radius: "55%",
-        center: ["40%", "60%"],
+        center: ["50%", "60%"],
         data: data,
         itemStyle: {
           emphasis: {

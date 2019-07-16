@@ -3,6 +3,7 @@ import ReactEcharts from "echarts-for-react";
 import { connect } from "react-redux";
 import { getOption } from "../utils/barReport";
 import { getBarData } from "../actions/index";
+import { prepareChartData } from "../utils/preparebarChartData";
 
 class BarGraph extends Component {
   constructor(props) {
@@ -15,14 +16,12 @@ class BarGraph extends Component {
   componentDidMount() {
     this.props.getBarData(this.state.dataType);
   }
-
   getOption = () => {
     let data = this.props.data;
+    let dataForChart = {};
     if (data && data.length !== 0) {
-      let reportTypes = data.map(obj => obj.reportType);
-      let dataValues = data.map(obj => obj.value);
-      let resultType = data[0].dataType;
-      return getOption(reportTypes, dataValues, resultType);
+      dataForChart = prepareChartData(data);
+      return getOption(dataForChart);
     }
     return {};
   };

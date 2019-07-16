@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import ReactEcharts from "echarts-for-react";
 import { getOption } from "../utils/barMonth";
 import { getData } from "../actions/index";
+import { prepareChartData } from "../utils/preparebarChartData";
 
 class BarGraphMonth extends Component {
   constructor(props) {
@@ -15,29 +16,15 @@ class BarGraphMonth extends Component {
   componentDidMount() {
     this.props.getData(this.state.currentFilter);
   }
-  getOption() {
-    // let duration = [];
-    // let total = [];
-    // let classified = [];
-    // let completeResponse = [];
-    // let partialResponse = [];
+  getOption = () => {
+    let data = this.props.data;
     let dataForChart = {};
-    this.props.data.forEach(obj => {
-      for (let key in obj) {
-        if (dataForChart[key]) dataForChart[key].push(obj[key]);
-        else {
-          dataForChart[key] = [];
-          dataForChart[key].push(obj[key]);
-        }
-      }
-      //   duration.push(obj.duration);
-      //   total.push(obj.total);
-      //   classified.push(obj.classified);
-      //   completeResponse.push(obj.completeResponse);
-      //   partialResponse.push(obj.partialResponse);
-    });
-    return getOption(dataForChart);
-  }
+    if (data && data.length !== 0) {
+      dataForChart = prepareChartData(data);
+      return getOption(dataForChart);
+    }
+    return {};
+  };
   handleFilterClick(filter) {
     this.setState({ currentFilter: filter }, () => {
       this.props.getData(this.state.currentFilter);
